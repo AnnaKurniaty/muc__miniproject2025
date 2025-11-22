@@ -1,4 +1,4 @@
-@extends('master')
+@extends('proposal::layouts.master')
 
 @section('content')
     <div class="row mb-3">
@@ -12,10 +12,10 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <span>All Proposal</span>
-                    <!-- <a href="{{ url('proposal/create') }}" class="btn btn-primary btn-sm">Add New Proposal</a> -->
+                    <a href="{{ route('proposal.create') }}" class="btn btn-primary btn-sm">Add New Proposal</a>
                 </div>
                 <div class="card-body">
-                    @if($proposals->count() > 0)
+                    @if($proposal->count() > 0)
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
                                 <thead>
@@ -27,12 +27,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($proposals as $proposal)
+                                    @foreach($proposal as $item)
                                         <tr>
-                                            <td>{{ $proposal->number }}</td>
-                                            <td>{{ $proposal->year ?? '-' }}</td>
-                                            <td>{{ $proposal->description ?? '-' }}</td>
-                                            <td>{{ $proposal->status ?? '-' }}</td>
+                                            <td>{{ $item->number }}</td>
+                                            <td>{{ $item->year ?? '-' }}</td>
+                                            <td>{{ $item->description ?? '-' }}</td>
+                                            <td>{{ $item->status ?? '-' }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -41,7 +41,13 @@
 
                     @else
                         <div class="alert alert-info">
-                            No employees found.
+                            No proposal found.
+                        </div>
+                    @endif
+
+                    @if(session('success'))
+                        <div class="alert alert-success mt-3">
+                            {{ session('success') }}
                         </div>
                     @endif
                 </div>

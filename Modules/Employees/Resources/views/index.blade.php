@@ -1,4 +1,4 @@
-@extends('master')
+@extends('employees::layouts.master')
 
 @section('content')
     <div class="row mb-3">
@@ -30,7 +30,17 @@
                                         <tr>
                                             <td>{{ $employee->id }}</td>
                                             <td>{{ $employee->fullname ?? '-' }}</td>
-                                            <td>{{ $employee->status ?? '-' }}</td>
+                                            <td>
+                                                <form action="{{ route('employees.updateStatus', $employee->id) }}" method="POST" style="display: inline;">
+                                                    @csrf
+                                                    @method('PATCH')
+                                                    <select name="status" class="form-control form-control-sm" style="display: inline-block; width: auto;">
+                                                        <option value="active" {{ $employee->status == 'active' ? 'selected' : '' }}>Active</option>
+                                                        <option value="inactive" {{ $employee->status == 'inactive' ? 'selected' : '' }}>Inactive</option>
+                                                    </select>
+                                                    <button type="submit" class="btn btn-primary btn-sm ml-2">Update</button>
+                                                </form>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

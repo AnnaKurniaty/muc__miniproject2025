@@ -12,6 +12,12 @@ class EmployeesModel extends Model
     protected $table = 'employees'; // sesuaikan dengan nama table di DB
     
     protected $fillable = [
-        // kolom-kolom yang bisa di-fill
+        'fullname',
+        'status',
     ];
+
+    public function timesheets()
+    {
+        return $this->hasMany(\App\Models\activity\TimesheetModel::class, 'employees_id');
+    }
 }

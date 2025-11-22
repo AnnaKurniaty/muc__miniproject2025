@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\Employees\Http\Controllers\EmployeesController;
+use Modules\Proposal\Http\Controllers\ProposalController;
+use Modules\Serviceused\Http\Controllers\ServiceusedController;
+use Modules\Timesheet\Http\Controllers\TimesheetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,3 +18,6 @@ use Modules\Employees\Http\Controllers\EmployeesController;
 */
 
 Route::get('/', [EmployeesController::class, 'index']);
+Route::get('/proposal', [ProposalController::class, 'index']);
+Route::get('/serviceused', [ServiceusedController::class, 'index']);
+Route::get('/timesheet', [TimesheetController::class, 'index']);

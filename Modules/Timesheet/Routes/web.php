@@ -12,5 +12,5 @@
 */
 
 Route::prefix('timesheet')->group(function() {
-    Route::get('/', 'TimesheetController@index');
+    Route::get('/index', 'TimesheetController@index');
 });

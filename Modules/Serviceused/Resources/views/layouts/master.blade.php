@@ -83,11 +83,11 @@
                       <a class="" href="{{ url('proposal/index') }}">Proposal</a>
                     </li>
                     <li class="nav-item">
-                      <a class="active" href="{{ url('serviceused') }}">Serviceused</a>
+                      <a class="active" href="{{ url('serviceused/index') }}">Serviceused</a>
                     </li>
 
                     <li class="nav-item">
-                      <a class="" href="{{ url('timesheet') }}">Timesheet</a>
+                      <a class="" href="{{ url('timesheet/index') }}">Timesheet</a>
                     </li>
                   </ul>
                 </div>
